@@ -51,7 +51,7 @@ export const AllSneakers = ({ items, setItems, cartItems, setCartItems }: AllSne
 				{isLoading ? arr.map(card => {
 					return <SneakersCard
 						key={card.id}
-						loading={false}
+						loading={true}
 					/>
 				}
 				) : (items.filter(item => item.name.toLowerCase().includes(searchValue.toLowerCase())))
