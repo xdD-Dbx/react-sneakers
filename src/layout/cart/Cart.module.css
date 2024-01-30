@@ -6,6 +6,14 @@
 	width: 100%;
 	z-index: 1;
 	background-color: rgba(0, 0, 0, 0.8);
+	/* opacity: 0; */
+	/* visibility: hidden; */
+	transition: opacity 0.1s ease-in-out, visibility 0.1s ease-in-out;
+}
+
+.overlayVisible {
+	opacity: 1;
+	visibility: visible;
 }
 
 .overlayInner {
@@ -19,6 +27,12 @@
 	height: 100%;
 	background: #fff;
 	box-shadow: -10px 4px 24px 0px rgba(0, 0, 0, 0.1);
+	/* transform: translateX(100%); */
+	/* transition: transform 0.3s ease-in-out; */
+}
+
+.overlayVisible .cart {
+	transform: translateX(0%);
 }
 
 .cart h2 {

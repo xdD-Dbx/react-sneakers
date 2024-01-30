@@ -38,7 +38,7 @@ export const Home = () => {
       await axios.delete(`https://65b01b852f26c3f2139c81de.mockapi.io/cart/${id}`)
       setCartItems((prev) => prev.filter((item) => item.id !== id))
     } catch (error) {
-      axios.get('https://65b01b852f26c3f2139c81de.mockapi.io/cart').then(res => setCartItems(res.data))
+      await axios.get('https://65b01b852f26c3f2139c81de.mockapi.io/cart').then(res => setCartItems(res.data))
     }
   }
 
