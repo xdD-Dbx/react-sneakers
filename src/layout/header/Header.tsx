@@ -9,7 +9,7 @@ export const Header = ({ onClickCart, totalPrice }: HeaderPropsType) => {
 			<div className='container d-flex justify-between align-center'>
 				<div className={`${styles.headerLeft} d-flex`}>
 					<img width={40} height={40} src='./img/logo.png' alt='' />
-					<div>
+					<div className={styles.content}>
 						<h3 className='text-uppercase'>React Sneakers</h3>
 						<p>Магазин лучших кроссовок</p>
 					</div>

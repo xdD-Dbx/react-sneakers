@@ -13,6 +13,16 @@ export const Home = () => {
   const [totalPrice, setTotalPrice] = useState('0')
   const [count, setCount] = useState(0)
 
+  const onClickCart = () => {
+    document.getElementById('root')?.classList.add('lock')
+    setIsOpened(true)
+  }
+
+  const onCloseCart = () => {
+    document.getElementById('root')?.classList.remove('lock')
+    setIsOpened(false)
+  }
+
   const onChangeCart = () => {
     const newTotalPrice = cartItems.reduce((total, item) => {
       const itemPrice = Number(item.price.replace(/\s/g, ""))
@@ -36,7 +46,7 @@ export const Home = () => {
     <>
       {isOpened && (
         <Cart
-          onClose={() => setIsOpened(false)}
+          onClose={onCloseCart}
           items={cartItems}
           onRemoveItem={onRemoveItem}
           totalPrice={totalPrice}
@@ -45,7 +55,7 @@ export const Home = () => {
           setCount={setCount}
         />
       )}
-      <Header onClickCart={() => setIsOpened(true)} totalPrice={totalPrice} />
+      <Header onClickCart={onClickCart} totalPrice={totalPrice} />
       <main className='page page-home'>
         <div className='container'>
           <AllSneakers

@@ -11,7 +11,6 @@ export const Cart = ({ onClose, items, onRemoveItem, count, setCount, setCartIte
   const [clickedShop, setClickedShop] = useState(false)
 
   const clickOnShop = async () => {
-
     try {
       const deletePromises = items.map(item =>
         axios.delete(`https://65b01b852f26c3f2139c81de.mockapi.io/cart/${item.id}`)

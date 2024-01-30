@@ -22,3 +22,13 @@
 	margin: 0 auto;
 	padding-inline: 15px;
 }
+
+.lock {
+	overflow: hidden;
+}
+
+@media (max-width: 565px) {
+	.wrapper {
+		margin: 0 auto;
+	}
+}

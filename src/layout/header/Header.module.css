@@ -24,3 +24,17 @@ header {
 .headerRight li span {
 	color: #5c5c5c;
 }
+
+@media (max-width: 565px) {
+	header {
+		padding: 22px 0;
+	}
+
+	.headerLeft .content {
+		display: none;
+	}
+
+	.headerRight li {
+		margin-right: 16px;
+	}
+}
