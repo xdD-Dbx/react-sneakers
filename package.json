@@ -2,7 +2,7 @@
 	"name": "vite-project",
 	"private": true,
 	"version": "0.0.0",
-	"homepage": "https://github.com/xdD-Dbx/react-sneakers/",
+	"homepage": "https://github.com/xdD-Dbx/react-sneakers/github.io",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
