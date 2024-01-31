@@ -21,14 +21,12 @@ export const AllSneakers = ({ items, setItems, cartItems, setCartItems }: AllSne
 		fetchData()
 	}, [])
 
-	// console.log(Array({}))
-
-	const onAddToCart = (obj: SneakersDataType) => {
+	const onAddToCart = async (obj: SneakersDataType) => {
 		console.log(obj)
 		const isItemInCart = cartItems.filter((item) => item.idc === obj.idc)
 		if (isItemInCart.length === 0) {
-			axios.post('https://65b01b852f26c3f2139c81de.mockapi.io/cart', obj)
-		 	setCartItems((prev: SneakersDataType[]) => [...prev, obj])
+			await axios.post('https://65b01b852f26c3f2139c81de.mockapi.io/cart', obj)
+			setCartItems((prev: SneakersDataType[]) => [...prev, obj])
 		} else {
 			alert('Товар уже в корзине')
 		}

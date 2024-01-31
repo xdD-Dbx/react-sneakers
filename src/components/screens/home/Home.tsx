@@ -10,6 +10,7 @@ export const Home = () => {
   const [items, setItems] = useState<SneakersDataType[]>([])
   const [cartItems, setCartItems] = useState<SneakersDataType[]>([])
   const [isOpened, setIsOpened] = useState(false)
+  const [confirmed, setConfirmed] = useState(false)
   const [totalPrice, setTotalPrice] = useState('0')
   const [count, setCount] = useState(0)
 
@@ -21,6 +22,7 @@ export const Home = () => {
   const onCloseCart = () => {
     document.getElementById('root')?.classList.remove('lock')
     setIsOpened(false)
+    setConfirmed(false)
   }
 
   const onChangeCart = () => {
@@ -44,17 +46,18 @@ export const Home = () => {
 
   return (
     <>
-      {isOpened && (
-        <Cart
-          onClose={onCloseCart}
-          items={cartItems}
-          onRemoveItem={onRemoveItem}
-          totalPrice={totalPrice}
-          count={count}
-          setCartItems={setCartItems}
-          setCount={setCount}
-        />
-      )}
+      <Cart
+        count={count}
+        items={cartItems}
+        isOpened={isOpened}
+        confirmed={confirmed}
+        totalPrice={totalPrice}
+        setCount={setCount}
+        onClose={onCloseCart}
+        setConfirmed={setConfirmed}
+        setCartItems={setCartItems}
+        onRemoveItem={onRemoveItem}
+      />
       <Header onClickCart={onClickCart} totalPrice={totalPrice} />
       <main className='page page-home'>
         <div className='container'>

@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { useState } from 'react'
 import { CartPropsType } from "../../types/CartPropsType"
 import styles from "./Cart.module.css"
 import { CartItem } from "./cart-item/CartItem"
@@ -7,8 +6,7 @@ import { DeleteSvg } from "./cart-item/DeleteSvg"
 import { CartTemplate } from "./cart-template/CartTemplate"
 import { Total } from "./total/Total"
 
-export const Cart = ({ onClose, items, onRemoveItem, count, setCount, setCartItems, totalPrice }: CartPropsType) => {
-  const [clickedShop, setClickedShop] = useState(false)
+export const Cart = ({ onClose, confirmed, setConfirmed, isOpened, items, onRemoveItem, count, setCount, setCartItems, totalPrice }: CartPropsType) => {
 
   const clickOnShop = async () => {
     try {
@@ -17,7 +15,7 @@ export const Cart = ({ onClose, items, onRemoveItem, count, setCount, setCartIte
       )
       await Promise.all(deletePromises)
 
-      setClickedShop(!clickedShop)
+      setConfirmed(true)
       setCount(count + 1)
       setCartItems([])
     } catch (error) {
@@ -29,18 +27,18 @@ export const Cart = ({ onClose, items, onRemoveItem, count, setCount, setCartIte
   }
 
   return (
-    <div className={`${styles.overlay} d-flex justify-between`}>
+    <div className={`${styles.overlay} d-flex justify-between ${isOpened ? styles.overlayVisible : ''}`}>
       <div className={styles.overlayInner} onClick={onClose}></div>
       <div className={`${styles.cart} d-flex flex-column`}>
         <h2 className="d-flex justify-between">
           Корзина
-          {items.length && clickedShop === false ? (
+          {items.length && confirmed === false ? (
             <div className="cu-p" onClick={onClose}>
               <DeleteSvg />
             </div>
           ) : null}
         </h2>
-        {clickedShop ?
+        {confirmed ?
           <div className="d-flex flex-auto align-center">
             <CartTemplate
               image={'./img/orderIsProcessed.png'}
@@ -76,7 +74,7 @@ export const Cart = ({ onClose, items, onRemoveItem, count, setCount, setCartIte
               />
             </div>
           ))}
-        {items.length && clickedShop === false ? <Total
+        {items.length && confirmed === false ? <Total
           totalPrice={totalPrice}
           clickOnShop={clickOnShop}
         /> : null}
