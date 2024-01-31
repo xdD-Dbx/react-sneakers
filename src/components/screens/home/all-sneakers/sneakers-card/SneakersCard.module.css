@@ -32,3 +32,24 @@
 	font-size: 11px;
 	font-weight: 500;
 }
+
+.clickAdd {
+	position: relative;
+	width: 32px;
+	height: 32px;
+}
+
+.plusClickedImage {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 5;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+}
+
+.plusClicked .plusClickedImage {
+	opacity: 1;
+	visibility: visible;
+}

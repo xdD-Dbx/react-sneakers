@@ -40,10 +40,15 @@ export const SneakersCard = ({ image, name, price, onPlus, added = false, loadin
 								<span className='text-uppercase'>Цена:</span>
 								<b>{price} руб.</b>
 							</div>
-							<button onClick={onClickAdd}>
+							<button className={`${isAdded ? styles.plusClicked : styles.plus} ${styles.clickAdd}`} onClick={onClickAdd}>
 								<img
 									height={32} width={32}
-									src={isAdded ? './img/icons/plusClicked.svg' : './img/icons/plus.svg'} alt='Add'
+									src='./img/icons/plus.svg' alt='Add'
+								/>
+								<img
+									className={styles.plusClickedImage}
+									height={32} width={32}
+									src='./img/icons/plusClicked.svg' alt='Add'
 								/>
 							</button>
 						</div>
