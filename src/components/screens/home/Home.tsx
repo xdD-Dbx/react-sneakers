@@ -35,12 +35,27 @@ export const Home = () => {
   }
   useEffect(onChangeCart, [cartItems])
 
+  const onAddToCart = async (obj: SneakersDataType) => {
+    try {
+      const isItemInCart = cartItems.find((item) => item.idc === obj.idc)
+      if (!isItemInCart) {
+        await axios.post('https://65b01b852f26c3f2139c81de.mockapi.io/cart', obj)
+        setCartItems((prev: SneakersDataType[]) => [...prev, obj])
+      } else {
+        alert('Товар уже в корзине')
+      }
+    } catch (error) {
+      console.error('Ошибка при добавлении товара в корзину:', error)
+    }
+  }
+
   const onRemoveItem = async (id: number) => {
     try {
       await axios.delete(`https://65b01b852f26c3f2139c81de.mockapi.io/cart/${id}`)
       setCartItems((prev) => prev.filter((item) => item.id !== id))
     } catch (error) {
       await axios.get('https://65b01b852f26c3f2139c81de.mockapi.io/cart').then(res => setCartItems(res.data))
+      alert('Произошла ошибка при удалении из корзины, повторите попытку')
     }
   }
 
@@ -63,8 +78,9 @@ export const Home = () => {
         <div className='container'>
           <AllSneakers
             items={items}
-            setItems={setItems}
             cartItems={cartItems}
+            setItems={setItems}
+            onAddToCart={onAddToCart}
             setCartItems={setCartItems}
           />
         </div>

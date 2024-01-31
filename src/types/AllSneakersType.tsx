@@ -5,4 +5,5 @@ export type AllSneakersType = {
 	cartItems: Array<SneakersDataType>
 	setItems: Function
 	setCartItems: Function
+	onAddToCart: Function
 }

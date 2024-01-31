@@ -30,7 +30,7 @@ export const SneakersCard = ({ image, name, price, onPlus, added = false, loadin
 						<rect x="0" y="130" rx="0" ry="0" width="150" height="15" />
 						<rect x="0" y="150" rx="0" ry="0" width="100" height="15" />
 						<rect x="0" y="180" rx="0" ry="0" width="80" height="31" />
-						<rect x="115" y="165" rx="8" ry="8" width="32" height="32" />
+						<rect x="115" y="170" rx="8" ry="8" width="32" height="32" />
 					</ContentLoader> :
 					<>
 						<img width={133} height={112} src={image} alt='Sneakers' />

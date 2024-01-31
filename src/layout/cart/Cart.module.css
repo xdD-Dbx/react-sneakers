@@ -9,10 +9,10 @@
 	opacity: 0;
 	overflow: hidden;
 	visibility: hidden;
-	transition: opacity 0.1s ease-in-out, visibility 0.1s ease-in-out;
+	transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
 }
 
-.overlayVisible {
+.overlay.overlayVisible {
 	opacity: 1;
 	visibility: visible;
 }
