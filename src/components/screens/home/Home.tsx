@@ -44,6 +44,9 @@ export const Home = () => {
           obj
         );
         setCartItems((prev: SneakersDataType[]) => [...prev, obj]);
+        await axios
+          .get("https://65b01b852f26c3f2139c81de.mockapi.io/cart")
+          .then((res) => setCartItems(res.data));
       } else {
         alert("Товар уже в корзине");
       }
