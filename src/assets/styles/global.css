@@ -2,6 +2,10 @@
 	height: 100%;
 }
 
+.lock {
+	overflow: hidden;
+}
+
 .wrapper {
 	margin: 50px auto;
 	min-height: 100%;
@@ -21,10 +25,6 @@
 	width: 100%;
 	margin: 0 auto;
 	padding-inline: 15px;
-}
-
-.lock {
-	overflow: hidden;
 }
 
 @media (max-width: 565px) {
