@@ -1,7 +1,6 @@
-import { HeaderPropsType } from "../../types/HeaderPropsType";
-import styles from "./Header.module.css";
-import { CartSvg } from "./icons/CartSvg";
-import { UserSvg } from "./icons/UserSvg";
+import { HeaderPropsType } from "../../types/HeaderPropsType"
+import styles from "./Header.module.css"
+import { CartSvg } from "./icons/CartSvg"
 
 export const Header = ({ totalPrice, onClickCart }: HeaderPropsType) => {
   return (
@@ -19,12 +18,12 @@ export const Header = ({ totalPrice, onClickCart }: HeaderPropsType) => {
             <CartSvg />
             <span>{totalPrice} руб.</span>
           </li>
-          <li className="d-flex align-center cu-p">
+          {/* <li className="d-flex align-center cu-p">
             <UserSvg />
             <span>Профиль</span>
-          </li>
+          </li> */}
         </ul>
       </div>
     </header>
-  );
-};
+  )
+}

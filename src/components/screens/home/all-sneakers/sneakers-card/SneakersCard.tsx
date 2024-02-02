@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import ContentLoader from "react-content-loader";
-import styles from "./SneakersCard.module.css";
+import { useEffect, useState } from "react"
+import ContentLoader from "react-content-loader"
+import styles from "./SneakersCard.module.css"
 
 export const SneakersCard = ({
   image,
@@ -10,16 +10,16 @@ export const SneakersCard = ({
   added = false,
   loading = false,
 }: any) => {
-  const [isAdded, setIsAdded] = useState(added);
+  const [isAdded, setIsAdded] = useState(added)
 
   useEffect(() => {
-    setIsAdded(added);
-  }, [added]);
+    setIsAdded(added)
+  }, [added])
 
   const onClickAdd = () => {
-    setIsAdded(!isAdded);
-    onPlus();
-  };
+    setIsAdded(!isAdded)
+    onPlus()
+  }
 
   return (
     <div className={styles.card}>
@@ -50,9 +50,8 @@ export const SneakersCard = ({
               <b>{price} руб.</b>
             </div>
             <button
-              className={`${isAdded ? styles.plusClicked : styles.plus} ${
-                styles.clickAdd
-              }`}
+              className={`${isAdded ? styles.plusClicked : styles.plus} ${styles.clickAdd
+                }`}
               onClick={onClickAdd}
             >
               <img
@@ -73,5 +72,5 @@ export const SneakersCard = ({
         </>
       )}
     </div>
-  );
-};
+  )
+}
